@@ -18,6 +18,29 @@ JDK 1.6版本关键要素：
 
 而到了JDK 1.8的ConcurrentHashMap就有了很大的变化，光是代码量就足足增加了很多。1.8版本舍弃了segment，并且大量使用了synchronized，以及CAS无锁操作以保证ConcurrentHashMap操作的线程安全性。至于为什么不用ReentrantLock而是Synchronzied呢？实际上，synchronzied做了很多的优化，包括偏向锁，轻量级锁，重量级锁，可以依次向上升级锁状态，但不能降级（关于synchronized可以[看这篇文章](https://juejin.im/post/5ae6dc04f265da0ba351d3ff)），因此，使用synchronized相较于ReentrantLock的性能会持平甚至在某些情况更优，具体的性能测试可以去网上查阅一些资料。另外，底层数据结构改变为采用数组+链表+红黑树的数据形式。
 
+# JDK1.7和JDK1.8版本的变化
+
+ConcurrentHashMap和HashMap的实现原理是差不多的，但是因为ConcurrentHashMap需要支持并发操作，所以在实现上要比HashMap稍微复杂一些。
+
+在JDK1.7的实现上，ConcurrentHashMap由一个个Segment组成，简单来说，ConcurrentHashMap是一个Segment数组，它通过集成ReentrantLock来进行加锁，通过每次锁住一个Segment来保证每个Segment内的操作的线程安全性从而实现全局线程安全。
+
+整个结构图如下：
+
+![image-20191016103905525](http://blog.ityoung.tech/toturial/java%20basic%20knowledge/%E5%B9%B6%E5%8F%91/assets/image-20191016103905525.png)
+
+当每个操作分布在不同的Segment上的时候，默认情况下，理论上可以同时支持16个线程并发写入。
+
+**1.8相比于1.7版本，做了两个改进：**
+
+1.  取消了segment分段设计，直接使用Node数组来保存数据，并且采用Node数组元素作为锁来实现每一行数据进行加锁来进一步减少并发冲突的概率。
+3.  将原本数组+单向链表的数据结构变更为数组+单向链表+红黑树的结构。为什么要引入红黑树呢？在正常情况下，key hash之后如果能够很均匀的分散在数组中，那么table数组中的node队列长度主要为0或者1。但是实际情况下，还是会存在一些队列长度过长的情况。如果来采用单向链表方式，那么查询某个节点的时间复杂度就变为O(n)。因此对于队列长度超过8的列表，JDK1.8采用了红黑树的结构，那么查询的时间复杂度就会降低到O(logN)，可以提升查找的性能。![image-20191016104506080](http://blog.ityoung.tech/toturial/java%20basic%20knowledge/%E5%B9%B6%E5%8F%91/assets/image-20191016104506080.png)这个结构和JDK1.8版本中的HashMap的实现结构基本一致，但是为了保证线程安全性，ConcurrentHashMap的实现会稍微复杂一些。
+
+接下来我们从源码层面了解一下它的原理。我们基于put和get方法来分析它的实现即可。
+
+## 参照
+1. [# ConcurrentHashMap源码分析](http://blog.ityoung.tech/toturial/java%20basic%20knowledge/%E5%B9%B6%E5%8F%91/09-ConcurrentHashMap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html)
+
+
 # 2.关键属性及类 #
 在了解ConcurrentHashMap的具体方法实现前，我们需要系统的来看一下几个关键的地方。
 

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
+            "file": "04.彻底理解synchronized/java关键字---synchronized.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md"
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md"
               }
             }
           }
@@ -130,15 +130,15 @@
   },
   "active": "3d587d4e36fb5e5f",
   "lastOpenFiles": [
+    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
     "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
+    "04.彻底理解synchronized/java关键字---synchronized.md",
     "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
     "README.md",
     "26.大白话说java并发工具类-Semaphore，Exchanger/大白话说java并发工具类-Semaphore，Exchanger.md",
-    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
     "Java并发知识图谱.png",
     "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md",
     "10.彻底理解ReentrantLock/彻底理解ReentrantLock.md",
-    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
-    "02.线程的状态转换以及基本操作/线程状态转换以及基本操作.md"
+    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md"
   ]
 }
