@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "04.彻底理解synchronized/java关键字---synchronized.md",
+            "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
+                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
+                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04.彻底理解synchronized/java关键字---synchronized.md"
+                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md"
               }
             }
           }
@@ -130,9 +130,9 @@
   },
   "active": "3d587d4e36fb5e5f",
   "lastOpenFiles": [
-    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
     "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
     "04.彻底理解synchronized/java关键字---synchronized.md",
+    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
     "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
     "README.md",
     "26.大白话说java并发工具类-Semaphore，Exchanger/大白话说java并发工具类-Semaphore，Exchanger.md",
