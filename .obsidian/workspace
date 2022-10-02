@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "3d587d4e36fb5e5f",
+        "id": "fc0af4863f2bb953",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
+            "file": "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
             "mode": "preview",
             "source": false
           }
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 359.5
+    "width": 258.5
   },
   "right": {
     "id": "d9a31fc0ea7d799e",
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
+                "file": "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
+                "file": "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md"
+                "file": "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md"
               }
             }
           }
@@ -128,17 +128,17 @@
     "direction": "horizontal",
     "width": 235.5
   },
-  "active": "3d587d4e36fb5e5f",
+  "active": "fc0af4863f2bb953",
   "lastOpenFiles": [
     "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
+    "17.并发容器之ThreadLocal/开放定址法示意图.jpg",
+    "Java并发知识图谱.png",
+    "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
+    "17.并发容器之ThreadLocal/分离链表法示意图.gif",
+    "16.并发容器之CopyOnWriteArrayList/并发容器之CopyOnWriteArrayList.md",
     "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
     "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/assets/Pasted image 20220902003921.png",
-    "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
     "04.彻底理解synchronized/java关键字---synchronized.md",
-    "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
-    "README.md",
-    "26.大白话说java并发工具类-Semaphore，Exchanger/大白话说java并发工具类-Semaphore，Exchanger.md",
-    "Java并发知识图谱.png",
-    "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md"
+    "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md"
   ]
 }

@@ -11,18 +11,20 @@
 
 **set方法设置在当前线程中threadLocal变量的值**，该方法的源码为：
 
-	public void set(T value) {
-		//1. 获取当前线程实例对象
-	    Thread t = Thread.currentThread();
-		//2. 通过当前线程实例获取到ThreadLocalMap对象
-	    ThreadLocalMap map = getMap(t);
-	    if (map != null)
-			//3. 如果Map不为null,则以当前threadLocl实例为key,值为value进行存入
-	        map.set(this, value);
-	    else
-			//4.map为null,则新建ThreadLocalMap并存入value
-	        createMap(t, value);
-	}
+```java
+public void set(T value) {
+	//1. 获取当前线程实例对象
+	Thread t = Thread.currentThread();
+	//2. 通过当前线程实例获取到ThreadLocalMap对象
+	ThreadLocalMap map = getMap(t);
+	if (map != null)
+		//3. 如果Map不为null,则以当前threadLocl实例为key,值为value进行存入
+		map.set(this, value);
+	else
+		//4.map为null,则新建ThreadLocalMap并存入value
+		createMap(t, value);
+}
+```
 
 方法的逻辑很清晰，具体请看上面的注释。通过源码我们知道value是存放在了ThreadLocalMap里了，当前先把它理解为一个普普通通的map即可，也就是说，**数据value是真正的存放在了ThreadLocalMap这个容器中了，并且是以当前threadLocal实例为key**。先简单的看下ThreadLocalMap是什么，有个简单的认识就好，下面会具体说的。
 
@@ -130,8 +132,7 @@ ThreadLocalMap是threadLocal一个静态内部类，和大多数容器一样内�
 
 Entry是一个以ThreadLocal为key,Object为value的键值对，另外需要注意的是这里的**threadLocal是弱引用，因为Entry继承了WeakReference，在Entry的构造方法中，调用了super(k)方法就会将threadLocal实例包装成一个WeakReferenece。**到这里我们可以用一个图（下图来自http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/）来理解下thread,threadLocal,threadLocalMap，Entry之间的关系：
 
-![ThreadLocal各引用间的关系](http://upload-images.jianshu.io/upload_images/2615789-12aef2e6ff040cae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/610)
-
+![](ThreadLocal各引用间的关系.png)
 
 
 注意上图中的实线表示强引用，虚线表示弱引用。如图所示，每个线程实例中可以通过threadLocals获取到threadLocalMap，而threadLocalMap实际上就是一个以threadLocal实例为key，任意对象为value的Entry数组。当我们为threadLocal变量赋值，实际上就是以当前threadLocal实例为key，值为value的Entry往这个threadLocalMap中存放。需要注意的是**Entry中的key是弱引用，当threadLocal外部强引用被置为null(`threadLocalInstance=null`),那么系统 GC 的时候，根据可达性分析，这个threadLocal实例就没有任何一条链路能够引用到它，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话，这些key为null的Entry的value就会一直存在一条强引用链：Thread Ref -> Thread -> ThreaLocalMap -> Entry -> value永远无法回收，造成内存泄漏。**当然，如果当前thread运行结束，threadLocal，threadLocalMap,Entry没有引用链可达，在垃圾回收的时候都会被系统进行回收。在实际开发中，会使用线程池去维护线程的创建和复用，比如固定大小的线程池，线程为了复用是不会主动结束的，所以，threadLocal的内存泄漏问题，是应该值得我们思考和注意的问题，关于这个问题可以看这篇文章----[详解threadLocal内存泄漏问题](http://www.jianshu.com/p/dde92ec37bd1)
@@ -147,8 +148,7 @@ Entry是一个以ThreadLocal为key,Object为value的键值对，另外需要注�
 
 理想状态下，散列表就是一个包含关键字的固定大小的数组，通过使用散列函数，将关键字映射到数组的不同位置。下面是
 
-
-![理想散列表的一个示意图](http://upload-images.jianshu.io/upload_images/2615789-bf2dfb86819f6823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](理想散列表的一个示意图.png)
 
 在理想状态下，哈希函数可以将关键字均匀的分散到数组的不同位置，不会出现两个关键字散列值相同（假设关键字数量小于数组的大小）的情况。但是在实际使用中，经常会出现多个关键字散列值相同的情况（被映射到数组的同一个位置），我们将这种情况称为散列冲突。为了解决散列冲突，主要采用下面两种方式： **分离链表法**（separate chaining）和**开放定址法**（open addressing）
 
@@ -158,10 +158,7 @@ Entry是一个以ThreadLocal为key,Object为value的键值对，另外需要注�
 
 分散链表法使用链表解决冲突，将散列值相同的元素都保存到一个链表中。当查询的时候，首先找到元素所在的链表，然后遍历链表查找对应的元素，典型实现为hashMap，concurrentHashMap的拉链法。下面是一个示意图：
 
-
-![分离链表法示意图](http://upload-images.jianshu.io/upload_images/2615789-32b422909f2f933c.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/610)
-
-
+![](分离链表法示意图.gif)
 
 图片来自 http://faculty.cs.niu.edu/~freedman/340/340notes/340hash.htm
 

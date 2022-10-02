@@ -371,8 +371,11 @@ Node1的next域指向它自己，head指向了Node3。如果队列为空队列�
 如果让tail永远作为队列的队尾节点，实现的代码量会更少，而且逻辑更易懂。但是，这样做有一个缺点，**如果大量的入队操作，每次都要执行CAS进行tail的更新，汇总起来对性能也会是大大的损耗。如果能减少CAS更新的操作，无疑可以大大提升入队的操作效率，所以doug lea大师每间隔1次（tail和队尾节点的距离为1）进行才利用CAS更新tail。**对head的更新也是同样的道理，虽然，这样设计会多出在循环中定位队尾节点，但总体来说读的操作效率要远远高于写的性能，因此，多出来的在循环中定位尾节点的操作的性能损耗相对而言是很小的。
 
 
->参考资料
+# 参考资料
 
-《java并发编程的艺术》
-《Java高并发程序设计》
-ConcurrentLinkedQueue博文：https://www.cnblogs.com/sunshine-2015/p/6067709.html
+1. 《java并发编程的艺术》
+2. 《Java高并发程序设计》
+3. [ConcurrentLinkedQueue博文](https://www.cnblogs.com/sunshine-2015/p/6067709.html)
+4. 图解——[并发容器-ConcurrentLinkedQueue详解](https://www.jianshu.com/p/231caf90f30b?u_atoken=e6f87927-8462-4920-b874-a8148284bf03&u_asession=01PngiWRVfyqPDtKE_OKWqIwwcm2OScFBppmfdSmUsOxQmEc4D5HRbo_1BzFOXHzomX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K_dOgrYFmpsimASG0droIt7g0pn3tpfEcqG8HZmzd6q3mBkFo3NEHBv0PZUm6pbxQU&u_asig=05FUa9PccxevrEVu1QzwZNJw4w6DOdcNswue-Ed4YLbhFNiznYUWNiIyh4piETFTB4DanRrS0fFOi8jJa8IJp_eUUwIINFXviZEfKubrHV5MRolkUrdJ25qSkF7rZ9WeUsz5RDdRDOcBCJbnzMONdyi3Nkly45bhhTt4n1uWJvcjj9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzdmLsu3Vhx8GOvSigPcYqO3UJpH-2GEIEl6lwNuEiOk_6xaDswPo-3_59so9Oh9f1-3h9VXwMyh6PgyDIVSG1W9zwc7tWYDAA9xzBv-t-hUy1wZvZ26IjnNSpvn_5U1Dwhl2iy3pvI1tsOt8DLhXJDCkh_Lk8G_18rfQABzL10x-mWspDxyAEEo4kbsryBKb9Q&u_aref=PEBrgSCDY2EAeDXvovQtchapKiE%3D)
+
+
