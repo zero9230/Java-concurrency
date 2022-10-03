@@ -411,5 +411,5 @@ getEntryAfterMiss方法向后环形去找，该方法为：
 
 > 参考资料
 
-《java高并发程序设计》
-[http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/](http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/)
+1. 《java高并发程序设计》
+2. [http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/](http://blog.xiaohansong.com/2016/08/06/ThreadLocal-memory-leak/)
