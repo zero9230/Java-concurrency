@@ -1,0 +1,166 @@
+{
+  "main": {
+    "id": "037d2a6299bc4836",
+    "type": "split",
+    "children": [
+      {
+        "id": "e4b37f20f3bfe175",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fc0af4863f2bb953",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "18.一篇文章，从源码深入详解ThreadLocal内存泄漏问题/一篇文章，从源码深入详解ThreadLocal内存泄漏问题.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "07a24d5a4f7c7e0e",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.0.0"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3401fd1165d03093",
+    "type": "split",
+    "children": [
+      {
+        "id": "b2306161756d15f2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "969ba014736b6486",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "06cf94397196e8f3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "semaphore",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d16202d9f3a896c1",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 258.5
+  },
+  "right": {
+    "id": "d9a31fc0ea7d799e",
+    "type": "split",
+    "children": [
+      {
+        "id": "dee745d8697af913",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1792b94aae02fd09",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "18.一篇文章，从源码深入详解ThreadLocal内存泄漏问题/一篇文章，从源码深入详解ThreadLocal内存泄漏问题.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "246263dd9387393b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "18.一篇文章，从源码深入详解ThreadLocal内存泄漏问题/一篇文章，从源码深入详解ThreadLocal内存泄漏问题.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "61b9887833dd5c3b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "666f2fefff8c3529",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "18.一篇文章，从源码深入详解ThreadLocal内存泄漏问题/一篇文章，从源码深入详解ThreadLocal内存泄漏问题.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 235.5
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "07a24d5a4f7c7e0e",
+  "lastOpenFiles": [
+    "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
+    "17.并发容器之ThreadLocal/开放定址法示意图.jpg",
+    "Java并发知识图谱.png",
+    "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
+    "17.并发容器之ThreadLocal/分离链表法示意图.gif",
+    "16.并发容器之CopyOnWriteArrayList/并发容器之CopyOnWriteArrayList.md",
+    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
+    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/assets/Pasted image 20220902003921.png",
+    "04.彻底理解synchronized/java关键字---synchronized.md",
+    "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md"
+  ]
+}
