@@ -181,7 +181,7 @@ threadLocal是为了解决**对象不能被多线程共享访问**的问题，�
 如图所示，cleanSomeSlot方法主要有这样几点：
 
 1. 从当前位置i处（位于i处的entry一定不是脏entry）为起点在初始小范围（log2(n)，n为哈希表已插入entry的个数size）开始向后搜索脏entry，若在整个搜索过程没有脏entry，方法结束退出
-2. 如果在搜索过程中遇到脏entryt通过expungeStaleEntry方法清理掉当前脏entry，并且该方法会返回下一个哈希桶(table[i])为null的索引位置为i。这时重新令搜索起点为索引位置i，n为哈希表的长度len，再次扩大搜索范围为log2(n')继续搜索。
+2. 如果在搜索过程中遇到脏entry通过expungeStaleEntry方法清理掉当前脏entry，并且该方法会返回下一个哈希桶(table[i])为null的索引位置为i。这时重新令搜索起点为索引位置i，n为哈希表的长度len，再次扩大搜索范围为log2(n')继续搜索。
 
 下面，以一个例子更清晰的来说一下，假设当前table数组的情况如下图。
 
