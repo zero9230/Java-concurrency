@@ -37,7 +37,7 @@ ConcurrentHashMap和HashMap的实现原理是差不多的，但是因为Concurre
 
 接下来我们从源码层面了解一下它的原理。我们基于put和get方法来分析它的实现即可。
 
-## 参照
+## 1 参照
 1. [# ConcurrentHashMap源码分析](http://blog.ityoung.tech/toturial/java%20basic%20knowledge/%E5%B9%B6%E5%8F%91/09-ConcurrentHashMap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html)
 
 
@@ -163,7 +163,7 @@ Node类实现了Map.Entry接口，主要存放key-value对，并且具有next域
 
 # 3.重点方法讲解 #
 在熟悉上面的这核心信息之后，我们接下来就来依次看看几个常用的方法是怎样实现的。
-## 3.1 实例构造器方法 ##
+## 1 实例构造器方法 ##
 在使用ConcurrentHashMap第一件事自然而然就是new 出来一个ConcurrentHashMap对象，一共提供了如下几个构造器方法：
 
 	// 1. 构造一个空的map，即table数组还未初始化，初始化放在第一次插入数据时，默认大小为16
@@ -209,7 +209,7 @@ ConcurrentHashMap一共给我们提供了5中构造器方法，具体使用请�
 
 通过注释就很清楚了，该方法会将调用构造器方法时指定的大小转换成一个2的幂次方数，也就是说ConcurrentHashMap的大小一定是2的幂次方，比如，当指定大小为18时，为了满足2的幂次方特性，实际上concurrentHashMapd的大小为2的5次方（32）。另外，需要注意的是，**调用构造器方法的时候并未构造出table数组（可以理解为ConcurrentHashMap的数据容器），只是算出table数组的长度，当第一次向ConcurrentHashMap插入数据的时候才真正的完成初始化创建table数组的工作**。
 
-## 3.2 initTable方法 ##
+## 2 initTable方法 ##
 直接上源码：
 
 	private final Node<K,V>[] initTable() {
@@ -241,7 +241,7 @@ ConcurrentHashMap一共给我们提供了5中构造器方法，具体使用请�
 
 代码的逻辑请见注释，有可能存在一个情况是多个线程同时走到这个方法中，为了保证能够正确初始化，在第1步中会先通过if进行判断，若当前已经有一个线程正在初始化即sizeCtl值变为-1，这个时候其他线程在If判断为true从而调用Thread.yield()让出CPU时间片。正在进行初始化的线程会调用U.compareAndSwapInt方法将sizeCtl改为-1即正在初始化的状态。另外还需要注意的事情是，在第四步中会进一步计算数组中可用的大小即为数组实际大小n乘以加载因子0.75.可以看看这里乘以0.75是怎么算的，0.75为四分之三，这里`n - (n >>> 2)`是不是刚好是n-(1/4)n=(3/4)n，挺有意思的吧:)。如果选择是无参的构造器的话，这里在new Node数组的时候会使用默认大小为`DEFAULT_CAPACITY`（16），然后乘以加载因子0.75为12，也就是说数组的可用大小为12。
 
-## 3.3 put方法 ##
+## 3 put方法 ##
 使用ConcurrentHashMap最长用的也应该是put和get方法了吧，我们先来看看put方法是怎样实现的。调用put方法时实际具体实现是putVal方法，源码如下：
 
 	/** Implementation for put and putIfAbsent */
@@ -431,7 +431,7 @@ put方法的代码量有点长，我们按照上面的分解的步骤一步步�
 8. 对当前容量大小进行检查，如果超过了临界值（实际大小*加载因子）就需要扩容。 
 
 
-## 3.4 get方法 ##
+## 4 get方法 ##
 看完了put方法再来看get方法就很容易了，用逆向思维去看就好，这样存的话我反过来这么取就好了。get方法源码为：
 
 	public V get(Object key) {
@@ -461,7 +461,7 @@ put方法的代码量有点长，我们按照上面的分解的步骤一步步�
 代码的逻辑请看注释，首先先看当前的hash桶数组节点即table[i]是否为查找的节点，若是则直接返回；若不是，则继续再看当前是不是树节点？通过看节点的hash值是否为小于0，如果小于0则为树节点。如果是树节点在红黑树中查找节点；如果不是树节点，那就只剩下为链表的形式的一种可能性了，就向后遍历查找节点，若查找到则返回节点的value即可，若没有找到就返回null。
 
 
-## 3.5 transfer方法 ##
+## 5 transfer方法 ##
 
 当ConcurrentHashMap容量不足的时候，需要对table进行扩容。这个方法的基本思想跟HashMap是很像的，但是由于它是支持并发扩容的，所以要复杂的多。原因是它支持多线程进行扩容操作，而并没有加锁。我想这样做的目的不仅仅是为了满足concurrent的要求，而是希望利用并发处理去减少扩容带来的时间影响。transfer方法源码为：
 
@@ -630,7 +630,7 @@ put方法的代码量有点长，我们按照上面的分解的步骤一步步�
 1. [# ConcurrentHashMap底层详解(图解扩容)（JDK1.8）](https://blog.csdn.net/zzu_seu/article/details/106698150) 
 
 
-### 图解扩容
+### 5.1 图解扩容
 触发扩容的操作：
 假设目前数组长度为8，数组的元素的个数为5。再放入一个元素就会触发扩容操作。
 ![](assets/Pasted%20image%2020220902003736.png)
@@ -672,7 +672,7 @@ hash桶迁移中以及迁移后如何处理存取请求？
 
 
 
-## 3.6 与size相关的一些方法 ##
+## 6 与size相关的一些方法 ##
 
 对于ConcurrentHashMap来说，这个table里到底装了多少东西其实是个不确定的数量，因为**不可能在调用size()方法的时候像GC的“stop the world”一样让其他线程都停下来让你去统计，因此只能说这个数量是个估计值。对于这个估计值**，ConcurrentHashMap也是大费周章才计算出来的。
 
