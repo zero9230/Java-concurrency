@@ -11,9 +11,11 @@
             "id": "fc0af4863f2bb953",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Java并发知识图谱.png"
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -91,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Java并发知识图谱.png",
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Java并发知识图谱.png",
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java并发知识图谱.png"
+                "file": "04.彻底理解synchronized/java关键字---synchronized.md"
               }
             }
           }
@@ -154,10 +156,13 @@
   },
   "active": "fc0af4863f2bb953",
   "lastOpenFiles": [
-    "18362989059.pdf",
-    "README.md",
+    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+    "02.线程的状态转换以及基本操作/线程状态转换以及基本操作.md",
+    "02.线程的状态转换以及基本操作/中断线程方法.png",
     "Java并发知识图谱.png",
+    "18362989059.pdf",
     "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
+    "README.md",
     "27.一篇文章，让你彻底弄懂生产者--消费者问题/一篇文章，让你彻底弄懂生产者--消费者问题.md",
     "高级测试工程师-18362989059.pdf",
     "18.一篇文章，从源码深入详解ThreadLocal内存泄漏问题/一篇文章，从源码深入详解ThreadLocal内存泄漏问题.md",
