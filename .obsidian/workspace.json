@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+                "file": "05.彻底理解volatile/java关键字---volatile.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+                "file": "05.彻底理解volatile/java关键字---volatile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+                "file": "05.彻底理解volatile/java关键字---volatile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md"
+                "file": "05.彻底理解volatile/java关键字---volatile.md"
               }
             }
           }
@@ -156,10 +156,10 @@
   },
   "active": "fc0af4863f2bb953",
   "lastOpenFiles": [
-    "02.线程的状态转换以及基本操作/线程状态转换以及基本操作.md",
-    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
-    "01.并发编程的优缺点/并发编程的优缺点.md",
     "04.彻底理解synchronized/java关键字---synchronized.md",
+    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+    "02.线程的状态转换以及基本操作/线程状态转换以及基本操作.md",
+    "01.并发编程的优缺点/并发编程的优缺点.md",
     "().md",
     "Java并发知识图谱.png",
     "README.md",
