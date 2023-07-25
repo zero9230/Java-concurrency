@@ -28,7 +28,7 @@ volatile是怎样实现了？比如一个很简单的Java代码：
 
 经过上面的分析，我们已经知道了volatile变量可以通过**缓存一致性协议**保证每个线程都能获得最新值，即满足数据的“可见性”。我们继续延续上一篇分析问题的方式（我一直认为思考问题的方式是属于自己，也才是最重要的，也在不断培养这方面的能力），我一直将并发分析的切入点分为**两个核心，三大性质**。两大核心：JMM内存模型（主内存和工作内存）以及happens-before；三条性质：原子性，可见性，有序性（关于三大性质的总结在以后得文章会和大家共同探讨）。废话不多说，先来看两个核心之一：volatile的happens-before关系。
 
-在六条[4. happens-before规则](java内存模型以及happens-before#4.%20happens-before规则)中有一条是：**volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。** 下面我们结合具体的代码，我们利用这条规则推导下：
+在六条[happens-before规则](java内存模型以及happens-before#4.%20happens-before规则)中有一条是：**volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。** 下面我们结合具体的代码，我们利用这条规则推导下：
 
 ```java
 	public class VolatileExample {
@@ -48,19 +48,19 @@ volatile是怎样实现了？比如一个很简单的Java代码：
 
 上面的实例代码对应的happens-before关系如下图所示：
 
-![VolatileExample的happens-before关系推导](http://upload-images.jianshu.io/upload_images/2615789-c9c291d6c0b3e0f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![VolatileExample的happens-before关系推导](VolatileExample的happens-before关系推导.png)
 
 
 加锁线程A先执行writer方法，然后线程B执行reader方法图中每一个箭头两个节点就代码一个happens-before关系，黑色的代表根据**程序顺序规则**推导出来，红色的是根据**volatile变量的写happens-before 于任意后续对volatile变量的读**，而蓝色的就是根据传递性规则推导出来的。这里的2 happen-before 3，同样根据happens-before规则定义：如果A happens-before B,则A的执行结果对B可见，并且A的执行顺序先于B的执行顺序，我们可以知道操作2执行结果对操作3来说是可见的，也就是说当线程A将volatile变量 flag更改为true后线程B就能够迅速感知。
 # 4. volatile的内存语义 #
 还是按照**两个核心**的分析方式，分析完happens-before关系后我们现在就来进一步分析volatile的内存语义（按照这种方式去学习，会不会让大家对知识能够把握的更深，而不至于不知所措，如果大家认同我的这种方式，不妨给个赞，小弟在此谢过，对我是个鼓励）。还是以上面的代码为例，假设线程A先执行writer方法，线程B随后执行reader方法，初始时线程的本地内存中flag和a都是初始状态，下图是线程A执行volatile写后的状态图。
 
-![线程A执行volatile写后的内存状态图](http://upload-images.jianshu.io/upload_images/2615789-9e5098f09d5ad065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![线程A执行volatile写后的内存状态图](线程A执行volatile写后的内存状态图.png)
 
 
 当volatile变量写后，线程中本地内存中共享变量就会置为失效的状态，因此线程B再需要读取从主内存中去读取该变量的最新值。下图就展示了线程B读取同一个volatile变量的内存变化示意图。
 
-![线程B读volatile后的内存状态图](http://upload-images.jianshu.io/upload_images/2615789-606771789255958f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![线程B读volatile后的内存状态图](线程B读volatile后的内存状态图.png)
 
 
 从横向来看，线程A和线程B之间进行了一次通信，线程A在写volatile变量时，实际上就像是给B发送了一个消息告诉线程B你现在的值都是旧的了，然后线程B读这个volatile变量时就像是接收了线程A刚刚发送的消息。既然是旧的了，那线程B该怎么办了？自然而然就只能去主内存去取啦。
@@ -74,13 +74,13 @@ volatile是怎样实现了？比如一个很简单的Java代码：
 
 JMM内存屏障分为四类见下图，
 
-![内存屏障分类表](http://upload-images.jianshu.io/upload_images/2615789-27cf04634cbdf284.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/680)
+![内存屏障分类表](内存屏障分类表.png)
 
 
 java编译器会在生成指令系列时在适当的位置会插入内存屏障指令来禁止特定类型的处理器重排序。为了实现volatile的内存语义，JMM会限制特定类型的编译器和处理器重排序，JMM会针对编译器制定volatile重排序规则表：
 
 
-![volatile重排序规则表](http://upload-images.jianshu.io/upload_images/2615789-fa62c72e7ec4ccb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/680)
+![volatile重排序规则表](volatile重排序规则表.png)
 
 
 "NO"表示禁止重排序。为了实现volatile内存语义时，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的**处理器重排序**。对于编译器来说，发现一个最优布置来最小化插入屏障的总数几乎是不可能的，为此，JMM采取了保守策略：
