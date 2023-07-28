@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05.彻底理解volatile/java关键字---volatile.md",
+                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
                 "mode": "source",
                 "source": false
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "05.彻底理解volatile/java关键字---volatile.md",
+                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "05.彻底理解volatile/java关键字---volatile.md",
+                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "05.彻底理解volatile/java关键字---volatile.md"
+                "file": "06.你以为你真的了解final吗？/java关键字--final.md"
               }
             }
           }
@@ -180,8 +180,8 @@
   },
   "active": "fc0af4863f2bb953",
   "lastOpenFiles": [
-    "VolatileExample的happens-before关系推导..md",
     "05.彻底理解volatile/java关键字---volatile.md",
+    "VolatileExample的happens-before关系推导..md",
     "05.彻底理解volatile/VolatileExample的happens-before关系推导.png",
     "04.彻底理解synchronized/java关键字---synchronized.md",
     "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
