@@ -13,33 +13,27 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
+                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f68f17153dcfc3eb",
+            "id": "2a3d6d7f0b1a1a57",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04.彻底理解synchronized/java关键字---synchronized.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           },
           {
             "id": "a9a6c1ca0ccb35af",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
-                "mode": "source",
-                "source": false
+                "file": "Java并发知识图谱.png"
               }
             }
           }
@@ -117,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
+                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "06.你以为你真的了解final吗？/java关键字--final.md",
+                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "06.你以为你真的了解final吗？/java关键字--final.md"
+                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md"
               }
             }
           }
@@ -180,16 +174,19 @@
   },
   "active": "fc0af4863f2bb953",
   "lastOpenFiles": [
+    "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
+    "Java并发知识图谱.png",
+    "README.md",
+    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
+    "07.三大性质总结：原子性、可见性以及有序性/三大性质总结：原子性、可见性以及有序性.md",
+    "06.你以为你真的了解final吗？/java关键字--final.md",
+    "04.彻底理解synchronized/java关键字---synchronized.md",
+    "01.并发编程的优缺点/并发编程的优缺点.md",
     "05.彻底理解volatile/java关键字---volatile.md",
     "VolatileExample的happens-before关系推导..md",
     "05.彻底理解volatile/VolatileExample的happens-before关系推导.png",
-    "04.彻底理解synchronized/java关键字---synchronized.md",
-    "03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md",
     "02.线程的状态转换以及基本操作/线程状态转换以及基本操作.md",
-    "01.并发编程的优缺点/并发编程的优缺点.md",
     "().md",
-    "Java并发知识图谱.png",
-    "README.md",
     "18362989059.pdf",
     "02.线程的状态转换以及基本操作/中断线程方法.png",
     "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/并发容器之ConcurrentHashMap(JDK 1.8版本).md",
@@ -203,7 +200,6 @@
     "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
     "17.并发容器之ThreadLocal/分离链表法示意图.gif",
     "16.并发容器之CopyOnWriteArrayList/并发容器之CopyOnWriteArrayList.md",
-    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/assets/Pasted image 20220902003921.png",
-    "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md"
+    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/assets/Pasted image 20220902003921.png"
   ]
 }

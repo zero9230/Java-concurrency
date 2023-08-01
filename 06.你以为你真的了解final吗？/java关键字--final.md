@@ -170,7 +170,7 @@ JDK中提供的八个包装类和String类都是不可变类，我们来看看St
 写final域的重排序规则**禁止对final域的写重排序到构造函数之外**，这个规则的实现主要包含了两个方面：
 
 1. JMM禁止编译器把final域的写重排序到构造函数之外；
-2. 编译器会在final域写之后，构造函数return之前，插入一个storestore屏障（关于内存屏障可以看[这篇文章](https://juejin.im/post/5ae6d309518825673123fd0e)）。这个屏障可以禁止处理器把final域的写重排序到构造函数之外。
+2. 编译器会在final域写之后，构造函数return之前，插入一个storestore屏障（关于内存屏障可以看[Java内存模型以及happens-before](../03.java内存模型以及happens-before规则/Java内存模型以及happens-before.md)。这个屏障可以禁止处理器把final域的写重排序到构造函数之外。
 
 我们再来分析writer方法，虽然只有一行代码，但实际上做了两件事情：
 
