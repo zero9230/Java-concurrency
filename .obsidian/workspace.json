@@ -13,9 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
+                "file": "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "241a3af8b6479585",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.3.7"
               }
             }
           },
@@ -37,7 +47,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
+                "file": "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
+                "file": "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md"
+                "file": "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md"
               }
             }
           }
@@ -172,8 +183,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "fc0af4863f2bb953",
+  "active": "241a3af8b6479585",
   "lastOpenFiles": [
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802235041.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802235023.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802234936.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802234846.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/banner.jpg",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/深入理解AbstractQueuedSynchronizer(AQS).md",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802234729.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets/Pasted image 20230802234642.png",
+    "09.深入理解AbstractQueuedSynchronizer(AQS)/assets",
     "08.初识Lock与AbstractQueuedSynchronizer(AQS)/初识Lock与AbstractQueuedSynchronizer(AQS).md",
     "Java并发知识图谱.png",
     "README.md",
@@ -198,8 +218,6 @@
     "17.并发容器之ThreadLocal/并发容器之ThreadLocal.md",
     "17.并发容器之ThreadLocal/开放定址法示意图.jpg",
     "15.并发容器之ConcurrentLinkedQueue/并发容器之ConcurrentLinkedQueue.md",
-    "17.并发容器之ThreadLocal/分离链表法示意图.gif",
-    "16.并发容器之CopyOnWriteArrayList/并发容器之CopyOnWriteArrayList.md",
-    "14.并发容器之ConcurrentHashMap(JDK 1.8版本)/assets/Pasted image 20220902003921.png"
+    "16.并发容器之CopyOnWriteArrayList/并发容器之CopyOnWriteArrayList.md"
   ]
 }
